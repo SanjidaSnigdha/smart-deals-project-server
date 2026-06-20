@@ -40,15 +40,7 @@ async function run() {
       // .limit(2)
       // .project(projectsFields);
 
-      console.log(req.query);
-      const email = req.query.email;
-      const query = {
-        if(email) {
-          query.email = email;
-        },
-      };
-
-      const cursor = productsCollection.find(query);
+      const cursor = productsCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
