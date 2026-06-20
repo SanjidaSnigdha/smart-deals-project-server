@@ -104,7 +104,6 @@ async function run() {
     app.post("/bids", async (req, res) => {
       const newBid = req.body;
       const result = await bidsCollection.insertOne(newBid);
-      res.send(result);
     });
 
     await client.db("admin").command({ ping: 1 });

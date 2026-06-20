@@ -90,20 +90,8 @@ async function run() {
 
     // bids related apis
     app.get("/bids", async (req, res) => {
-      const email = req.query.email;
-      const query = {};
-      if (email) {
-        query.buyer_email = email;
-      }
-
-      const cursor = bidsCollection.find(query);
+      const cursor = bidsCollection.find();
       const result = await cursor.toArray();
-      res.send(result);
-    });
-
-    app.post("/bids", async (req, res) => {
-      const newBid = req.body;
-      const result = await bidsCollection.insertOne(newBid);
       res.send(result);
     });
 
