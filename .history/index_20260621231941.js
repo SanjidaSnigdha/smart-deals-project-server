@@ -40,11 +40,11 @@ async function run() {
       const query = { email: email };
       const existingUser = await usersCollection.findOne(query);
       if (existingUser) {
-        res.send({ message: "user already exists. do not insert again" });
-      } else {
-        const result = await usersCollection.insertOne(newUser);
-        res.send(result);
+        res.send("user already exists. do not insert again");
       }
+
+      const result = await usersCollection.insertOne(newUser);
+      res.send(result);
     });
 
     app.get("/products", async (req, res) => {

@@ -33,19 +33,9 @@ async function run() {
     const bidsCollection = db.collection("bids");
     const usersCollection = db.collection("users");
 
-    app.post("/users", async (req, res) => {
-      const newUser = req.body;
-
-      const email = req.body.email;
-      const query = { email: email };
-      const existingUser = await usersCollection.findOne(query);
-      if (existingUser) {
-        res.send({ message: "user already exists. do not insert again" });
-      } else {
-        const result = await usersCollection.insertOne(newUser);
-        res.send(result);
-      }
-    });
+    app.post('/users', async(req,res)=>{
+      const newUser = 
+    })
 
     app.get("/products", async (req, res) => {
       // const projectsFields = { title: 1, price_min: 1, price_max: 1 };
